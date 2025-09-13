@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-with, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&family=Liter&display=swap"
@@ -16,23 +16,26 @@
     <header id="header">
         <div id="div-nav">
             <h1 id="titulo-inicio">TechStart</h1>
-            <button id="boton-tema">Cambiar Tema</button>
+            <button id="boton-tema" type="button">Cambiar Tema</button>
         </div>
         <nav id="navegador">
-            <a href="#seccion-uno" class="opcion">Inicio</a>
-            <a href="#servicios" class="opcion">Servicios</a>
-            <a href="#div-formulario" class="opcion">Registro</a>
+            <a href="#seccion-uno" class="opcion" id="uno">Inicio</a>
+            <a href="#seccion-servicios" class="opcion" id="formulario">Registro</a>
+            <a href="#seccion-formulario" class="opcion" id="servicios">Servicios</a>
         </nav>
     </header>
     <main>
         <section class="seccion" id="seccion-uno">
             <h2 class="titulo-seccion">Impulsando Emprendimientos Digitales</h2>
             <img src="img/techstart.png" alt="Logo de TechStart" id="logo">
-            <p id="p-seccion-uno">Unete a nuestro programa y haz crecer tu startup con mentores y expertos y
-                financiamiento.</hg>
+            <p class="p-seccion-uno">Unete a nuestro programa y haz crecer tu startup con mentores y expertos y
+                financiamiento.</p>
+            <p class="p-seccion-uno">En TechStart creemos que cada idea puede convertirse en una gran solución.
+                Nuestro compromiso es brindarte las herramientas, el conocimiento y la innovación
+                necesarias para transformar tu proyecto en una realidad exitosa.</p>
         </section>
 
-        <section class="seccion" id="servicios">
+        <section class="seccion" id="seccion-servicios">
             <h2 class="titulo-seccion">Nuestros Servicios</h2>
             <article>
                 <ul id="items-servicios">
@@ -41,20 +44,77 @@
                     <li class="items-servicios">Networking con emprendedores</li>
                 </ul>
             </article>
-            </section>
+        </section>
 
-            <div id="div-formulario">
-                <h2 class="titulo-seccion">Registrate</h2>
-                <form action="">
-                    <input type="text" class="input" placeholder=" Tu nombre">
-                    <input type="text" class="input" placeholder="Tu apellido">
-                    <button type="button" id="boton-enviar">Enviar</button>
-                </form>
+        <div class="seccion" id="seccion-formulario">
+            <h2 class="titulo-seccion">Registrate</h2>
+            <form action="">
+                <input type="text" class="input" id="correo" placeholder=" Tu correo">
+                <input type="text" class="input" id="contrasena" placeholder="Tu apellido">
+                <label for="select-emprendimiento" class="">Tipo de emprendimiento: </label>
+                <select name="emprendimiento" id="select-emprendimiento">
+                    <option value="pequeño">Pequeño</option>
+                    <option value="escalable">Escalable</option>
+                    <option value="social">Social</option>
+                    <option value="gran empresa">Gran empresa</option>
+                </select>
+                <button type="button" id="boton-enviar" onclick="validacionFormulario()">Enviar</button>
+            </form>
+        </div>
+        <div class="div-principal">
+            <h2 class="titulo-seccion">Testimonios</h2>
+            <div class="div-container">
+                <div class="slides">
+                    <div class="slide">
+                        <h3 class="titulos-seccion">Miguel Saenz</h3>
+                        <p class="p-testimonio">Recientemente utilicé los servicios de Techstart y debo decir que fue
+                            una excelente
+                            experiencia. El equipo fue muy profesional y me ayudó a conectarme en línea y encontrar
+                            trabajo rápidamente. Los recomendaría sin duda a cualquiera que busque apoyo para entrar en
+                            la industria tecnológica.</p>
+                    </div>
+                    <div class="slide">
+                        <h3 class="titulos-seccion">Edgar Garcia</h3>
+                        <p class="p-testimonio">¡Techstart ha sido un salvavidas para mí! Su sitio web es increíble y
+                            fácil de usar,
+                            brindando una experiencia muy fluida. Gracias a su ayuda encontré oportunidades laborales
+                            prometedoras y mejoré mis habilidades digitales. ¡No tengo palabras para agradecerles lo
+                            suficiente!.</p>
+                    </div>
+                    <div class="slide">
+                        <h3 class="titulos-seccion">Juan Perez</h3>
+                        <p class="p-testimonio">Hace poco usé los servicios que ofrece Techstart, y me impresionó su
+                            compromiso para ayudar a
+                            las personas a conectarse en línea y conseguir empleo. Su sitio web es fácil de usar y
+                            ofrece recursos valiosos para quienes buscan trabajo. ¡Estoy muy agradecida por su ayuda</p>
+                    </div>
+                </div>
+                <button type="button" class="btn-antes" id="btn-antes">❮</button>
+                <button type="button" class="btn-despues" id="btn-despues">❯</button>
             </div>
+        </div>
+        <section class="modal hidden">
+            <div class="flex">
+                <img src="img/image.png" alt="Usuario" width="50px" height="50px">
+                <button class="btn-close">⨉</button>
+            </div>
+            <div>
+                <h3 id="titulo-modal"></h3>
+                <p id="contenido-modal"></p>
+            </div>
+            <!--<button class="btn">Enviar</button>-->
+        </section>
+        <div class="overlay hidden"></div>
+        <!-- <button class="btn btn-open">Open Modal</button> -->
     </main>
+    <a class="flotante" href="#div-nav"><button class="btn-flotante">Ir al inicio</button></a>
+    <div class="progress-container"> <!--Barra de progreso-->
+        <div id="progress-bar" class="progress-bar"></div>
+    </div>
     <footer>
         <p>© 2025 Mi sitio de referencia | Todos los derechos reservados</p>
     </footer>
+    <script src="js/navegacion.js"></script>
 </body>
 
 </html>

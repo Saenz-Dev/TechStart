@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+
+        .slider {
+            position: relative;
+            width: 400px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .slides {
+            display: flex;
+            width: 100%;
+            height: 100%;   
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides img {
+            width: 400px;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Botones */
+        .btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slider">
+        <div class="slides" id="slides">
+            <img src="https://picsum.photos/id/1015/400/250" alt="Imagen 1">
+            <img src="https://picsum.photos/id/1016/400/250" alt="Imagen 2">
+            <img src="https://picsum.photos/id/1018/400/250" alt="Imagen 3">
+        </div>
+        <button class="btn prev" onclick="moverSlide(-1)">❮</button>
+        <button class="btn next" onclick="moverSlide(1)">❯</button>
+    </div>
+
+    <script>
+        let indice = 0;
+
+        function moverSlide(direccion) {
+            const slides = document.getElementById("slides");
+            const total = slides.children.length;
+
+            indice = (indice + direccion + total) % total;
+            slides.style.transform = `translateX(${-indice * 400}px)`;
+        }
+    </script>
+
+</body>
+
+</html>
